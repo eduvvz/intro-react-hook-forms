@@ -26,11 +26,9 @@ export default function ReactHooksForm() {
 
   useEffect(() => {
     const sdzValue = convertRealToSeedz(realValue);
-  
-    if (!isNaN(realValue)) {
-      setValue("sdz", isNaN(realValue) ? 0 : Number(sdzValue));
-    }
-  },[realValue, setValue])
+
+    setValue("sdz", isNaN(realValue) ? 0 : Number(sdzValue));
+  }, [realValue, setValue]);
 
   const onSubmit = handleSubmit(async (form: Form) => {
     fetcher.submit(form, {
